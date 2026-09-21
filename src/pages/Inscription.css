@@ -1,0 +1,160 @@
+.auth-page {
+  min-height: 100vh;
+  background: var(--gris-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  padding: 36px 32px;
+}
+
+.auth-card__logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.auth-logo-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--violet);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blanc);
+  box-shadow: var(--shadow-violet);
+  flex-shrink: 0;
+}
+
+.auth-logo-main {
+  display: block;
+  font-family: var(--font-titre);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--noir-doux);
+}
+
+.auth-logo-sub {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--gris-moyen);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.auth-card__titre {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--noir-doux);
+  margin-bottom: 6px;
+}
+
+.auth-card__desc {
+  font-size: 0.85rem;
+  color: var(--gris-moyen);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+/* Champ mot de passe */
+.auth-pwd-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.auth-pwd-wrap input {
+  padding-right: 44px;
+}
+
+.auth-pwd-toggle {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--gris-moyen);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  transition: color .15s;
+}
+
+.auth-pwd-toggle:hover { color: var(--violet); }
+
+/* Erreur auth */
+.auth-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--rouge-pale);
+  color: var(--rouge);
+  border: 1px solid rgba(239,68,68,.2);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  font-size: 0.83rem;
+  margin-bottom: 16px;
+}
+
+/* Bouton submit */
+.auth-submit {
+  width: 100%;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+/* Lien bas de page */
+.auth-card__link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: var(--gris-moyen);
+}
+
+.auth-card__link a {
+  color: var(--violet);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-card__link a:hover { text-decoration: underline; }
+
+/* Succès confirmation */
+.auth-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  padding: 12px 0;
+}
+
+.auth-success h2 {
+  font-size: 1.2rem;
+  color: var(--noir-doux);
+  font-family: var(--font-titre);
+}
+
+.auth-success p {
+  font-size: 0.88rem;
+  color: var(--gris-moyen);
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+@media (max-width: 480px) {
+  .auth-page    { padding: 20px 12px; }
+  .auth-card    { padding: 20px 14px; }
+  .auth-card__logo { margin-bottom: 16px; }
+  .auth-logo-icon  { width: 36px; height: 36px; }
+  .auth-logo-main  { font-size: 0.95rem; }
+  .auth-card__titre { font-size: 1.1rem; }
+  .auth-card__desc  { font-size: 0.78rem; margin-bottom: 14px; }
+}

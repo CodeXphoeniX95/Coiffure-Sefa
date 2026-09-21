@@ -1,0 +1,150 @@
+.dispos-admin { padding: 32px 24px; }
+
+.dispos-save-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(34,197,94,.12);
+  color: var(--vert);
+  border: 1px solid rgba(34,197,94,.3);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.dispos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.dispo-card { padding: 20px; }
+.dispo-card--ferme { opacity: 0.7; }
+
+.dispo-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.dispo-card__jour {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dispo-card__jour strong { font-size: 1rem; color: var(--noir-doux); }
+
+/* Toggle switch */
+.dispo-toggle {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.dispo-toggle input { opacity: 0; width: 0; height: 0; }
+
+.dispo-toggle__slider {
+  position: absolute;
+  inset: 0;
+  background: var(--gris-bord);
+  border-radius: 24px;
+  transition: background .25s;
+}
+
+.dispo-toggle__slider::before {
+  content: '';
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  top: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform .25s;
+  box-shadow: 0 1px 3px rgba(0,0,0,.2);
+}
+
+.dispo-toggle input:checked + .dispo-toggle__slider {
+  background: var(--violet);
+}
+
+.dispo-toggle input:checked + .dispo-toggle__slider::before {
+  transform: translateX(20px);
+}
+
+/* Horaires */
+.dispo-card__horaires {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.dispo-card__horaires .form-group {
+  flex: 1;
+  margin: 0;
+}
+
+.dispo-card__horaires .form-group label {
+  font-size: 0.75rem;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--gris-moyen);
+}
+
+.dispo-card__horaires .form-group select {
+  padding: 8px 10px;
+  font-size: 0.85rem;
+}
+
+.dispo-card__sep {
+  color: var(--gris-moyen);
+  font-size: 1rem;
+  padding-bottom: 8px;
+  flex-shrink: 0;
+}
+
+.dispo-card__ferme-msg {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gris-moyen);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Aperçu */
+.dispos-apercu { padding: 24px; }
+.dispos-apercu h3 { font-size: 1rem; font-weight: 600; color: var(--noir-doux); margin: 0 0 8px; }
+
+.dispos-creneaux {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dispo-creneau {
+  background: var(--gris-pale);
+  border: 1px solid var(--gris-bord);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  color: var(--noir-doux);
+  font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .dispos-admin { padding: 16px 12px; }
+  .dispos-grid  { grid-template-columns: 1fr; }
+  .dispo-card__horaires { gap: 4px; }
+  .dispos-creneaux { gap: 6px; }
+  .dispo-creneau   { padding: 3px 8px; font-size: 0.75rem; }
+}

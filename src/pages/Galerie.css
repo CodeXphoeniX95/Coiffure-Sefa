@@ -1,0 +1,180 @@
+.galerie-page__filters {
+  padding: 32px 20px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.galerie-page__count {
+  font-size: 0.85rem;
+  color: var(--gris-moyen);
+}
+
+/* Grille */
+.galerie-page__grid {
+  padding: 8px 20px 64px;
+  columns: 3;
+  column-gap: 16px;
+}
+
+.galerie-photo-card {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.galerie-photo-card img {
+  width: 100%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.galerie-photo-card:hover img { transform: scale(1.05); }
+
+.galerie-photo-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  opacity: 0;
+  transition: var(--transition);
+  color: var(--blanc);
+}
+
+.galerie-photo-card:hover .galerie-photo-card__overlay { opacity: 1; }
+
+.galerie-photo-card__overlay span {
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0 12px;
+}
+
+.galerie-photo-card__cat {
+  font-size: 0.72rem !important;
+  color: var(--violet-clair) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* CTA */
+.galerie-page__cta {
+  background: var(--noir-doux);
+  padding: 64px 0;
+}
+
+.galerie-page__cta-inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.galerie-page__cta-inner h3 {
+  font-family: var(--font-titre);
+  font-size: 1.6rem;
+  color: var(--blanc);
+}
+
+.galerie-page__cta-inner p {
+  color: rgba(255,255,255,0.6);
+  font-size: 1rem;
+  max-width: 400px;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.lightbox__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blanc);
+  transition: var(--transition);
+  z-index: 1;
+}
+.lightbox__close:hover { background: var(--violet); }
+
+.lightbox__content {
+  max-width: 800px;
+  width: 100%;
+  animation: scaleIn 0.25s ease;
+}
+
+@keyframes scaleIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+.lightbox__content img {
+  width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+}
+
+.lightbox__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 4px 0;
+}
+
+.lightbox__info strong {
+  color: var(--blanc);
+  font-family: var(--font-titre);
+  font-size: 1rem;
+}
+
+.lightbox__info span {
+  font-size: 0.78rem;
+  color: var(--violet-clair);
+  text-transform: uppercase;
+}
+
+/* Responsive */
+@media (max-width: 1024px) { .galerie-page__grid { columns: 2; } }
+@media (max-width: 600px)  {
+  .galerie-page__grid { columns: 1; padding: 8px 12px 48px; }
+  .galerie-page__filters { padding: 20px 12px 12px; gap: 10px; }
+  .galerie-page__cta { padding: 44px 0; }
+  .galerie-page__cta-inner h3 { font-size: 1.2rem; }
+  .galerie-page__cta-inner p  { font-size: 0.85rem; }
+}
+
+@media (max-width: 480px) {
+  .galerie-page__filters    { padding: 12px 0 8px; gap: 6px; flex-wrap: wrap; }
+  .galerie-page__filters .filter-btn { padding: 5px 10px; min-height: 32px; font-size: 0.7rem; }
+  .galerie-page__grid       { columns: 2; column-gap: 6px; padding: 0 10px 32px; }
+  .galerie-item             { margin-bottom: 6px; border-radius: 8px; }
+  .lightbox__close          { top: 8px; right: 8px; width: 36px; height: 36px; }
+  .galerie-page__cta        { padding: 28px 0; }
+  .galerie-page__cta-inner h3 { font-size: 1rem; }
+  .galerie-page__cta-inner p  { font-size: 0.78rem; }
+}

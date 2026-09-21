@@ -1,0 +1,194 @@
+/* Page header commun */
+.page-header {
+  background: var(--noir);
+  padding: 40px 0 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(155,48,255,0.15) 0%, transparent 70%);
+}
+
+.page-header__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.page-header__titre {
+  font-family: var(--font-titre);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  color: var(--blanc);
+  margin-bottom: 8px;
+}
+
+.page-header__titre span { color: var(--violet); }
+
+.page-header__desc {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.65);
+  max-width: 480px;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.page-header__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.page-header__breadcrumb a {
+  color: var(--violet-clair);
+  text-decoration: none;
+  transition: var(--transition);
+}
+.page-header__breadcrumb a:hover { color: var(--blanc); }
+
+/* Filtres */
+.services-page__filters {
+  padding: 20px 0;
+}
+
+.filters-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filters-bar__icon { color: var(--gris-moyen); }
+.filters-bar__label { font-size: 0.8rem; color: var(--gris-moyen); font-weight: 500; }
+
+.filter-btn {
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 2px solid var(--gris-clair);
+  color: var(--gris-moyen);
+  background: var(--blanc);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.filter-btn:hover {
+  border-color: var(--violet);
+  color: var(--violet);
+}
+
+.filter-btn--active {
+  background: var(--violet);
+  border-color: var(--violet);
+  color: var(--blanc) !important;
+}
+
+/* Contenu */
+.services-page__content {
+  padding-bottom: 48px;
+}
+
+/* Info paiement */
+.services-page__info-paiement {
+  margin-top: 36px;
+  background: var(--violet-pale);
+  border-radius: var(--radius-lg);
+  padding: 26px;
+  text-align: center;
+  border: 1px solid rgba(155,48,255,0.2);
+}
+
+.services-page__info-paiement h3 {
+  font-family: var(--font-titre);
+  font-size: 1.05rem;
+  color: var(--noir);
+  margin-bottom: 16px;
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.payment-method {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+
+.payment-method__logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--blanc);
+}
+
+.payment-method__logo--flooz  { background: #FF6B00; }
+.payment-method__logo--tmoney { background: #007AFF; }
+.payment-method__logo--cash   { background: var(--violet); }
+
+.payment-method span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gris-fonce);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px 20px;
+  color: var(--gris-moyen);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .page-header { padding: 22px 0 16px; }
+  .page-header__titre { font-size: clamp(1.2rem, 4.5vw, 1.7rem); margin-bottom: 6px; }
+  .page-header__desc  { font-size: 0.8rem; margin-bottom: 8px; }
+  .services-page__filters { padding: 12px 0; }
+  .filters-bar { gap: 6px; }
+  .filter-btn  { padding: 5px 12px; font-size: 0.78rem; }
+  .services-page__info-paiement { padding: 16px 12px; margin-top: 22px; }
+  .services-page__info-paiement h3 { font-size: 0.9rem; margin-bottom: 12px; }
+  .payment-methods { gap: 16px; }
+  .payment-method__logo { width: 38px; height: 38px; font-size: 0.95rem; }
+}
+
+@media (max-width: 480px) {
+  .page-header { padding: 22px 0 16px; }
+  .filters-bar__label { display: none; }
+  .filter-btn  { padding: 7px 12px; min-height: 38px; }
+  .payment-methods { gap: 14px; }
+  .payment-method__logo { width: 36px; height: 36px; }
+  .services-page__content { padding-bottom: 36px; }
+  .empty-state { padding: 36px 16px; }
+}
+
+@media (max-width: 480px) {
+  .page-header            { padding: 16px 0 12px; }
+  .page-header__titre     { font-size: 1.2rem; margin-bottom: 4px; }
+  .page-header__desc      { font-size: 0.75rem; margin-bottom: 6px; line-height: 1.4; }
+  .page-header__breadcrumb { font-size: 0.7rem; }
+  .filter-btn             { padding: 5px 10px; font-size: 0.72rem; min-height: 34px; }
+  .services-page__filters { padding: 8px 0; }
+  .services-page__info-paiement { padding: 12px 10px; margin-top: 16px; }
+  .services-page__info-paiement h3 { font-size: 0.82rem; margin-bottom: 8px; }
+  .payment-methods        { gap: 10px; }
+  .payment-method__logo   { width: 32px; height: 32px; font-size: 0.82rem; }
+  .payment-method span    { font-size: 0.68rem; }
+  .services-page__content { padding-bottom: 24px; }
+}

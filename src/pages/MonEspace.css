@@ -1,0 +1,295 @@
+.mon-espace {
+  min-height: 100vh;
+  background: var(--gris-pale);
+  padding: 32px 0 60px;
+}
+
+.mon-espace__content {
+  max-width: 860px;
+}
+
+/* En-tête */
+.mon-espace__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.mon-espace__avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--violet);
+  color: var(--blanc);
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: var(--font-titre);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-violet);
+}
+
+.mon-espace__header h1 {
+  font-family: var(--font-titre);
+  font-size: 1.3rem;
+  color: var(--noir-doux);
+  margin: 0 0 3px;
+}
+
+.mon-espace__header p {
+  font-size: 0.82rem;
+  color: var(--gris-moyen);
+  margin: 0;
+}
+
+.mon-espace__logout { margin-left: auto; }
+
+/* Grid */
+.mon-espace__grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+}
+
+.mon-espace__profil { grid-row: 1 / 2; padding: 20px; }
+.mon-espace__stats  { grid-row: 2 / 3; }
+.mon-espace__rdvs   { grid-column: 2; grid-row: 1 / 3; }
+
+/* Profil */
+.mon-espace__section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.mon-espace__section-header h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--noir-doux);
+  margin: 0;
+}
+
+.mon-espace__section-header h2 svg { color: var(--violet); }
+
+.mon-espace__profil-infos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.mon-espace__info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--gris-fonce);
+}
+
+.mon-espace__info-item svg { color: var(--violet); flex-shrink: 0; }
+
+.mon-espace__profil-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 16px;
+}
+
+.mon-espace__profil-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.mon-espace__actions-rapides {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--gris-clair);
+}
+
+/* Stats */
+.mon-espace__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  align-content: start;
+}
+
+.me-stat {
+  padding: 14px 12px;
+  text-align: center;
+}
+
+.me-stat strong {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--violet);
+  font-family: var(--font-titre);
+}
+
+.me-stat span {
+  font-size: 0.75rem;
+  color: var(--gris-moyen);
+}
+
+/* RDV */
+.mon-espace__rdvs-titre {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--noir-doux);
+  margin: 0 0 14px;
+}
+
+.mon-espace__rdvs-titre svg { color: var(--violet); }
+
+.me-loading {
+  color: var(--gris-moyen);
+  font-size: 0.85rem;
+  padding: 20px 0;
+}
+
+.me-empty {
+  padding: 36px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  color: var(--gris-moyen);
+  font-size: 0.88rem;
+}
+
+.me-empty svg { opacity: .4; }
+
+.me-rdv-card {
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.me-rdv-card--passe { opacity: .7; }
+
+.me-rdv-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.me-rdv-card__service {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.9rem;
+  color: var(--noir-doux);
+}
+
+.me-rdv-card__service svg { color: var(--violet); }
+
+.me-rdv-card__body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--gris-moyen);
+  margin-bottom: 12px;
+}
+
+.me-rdv-card__body span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.me-rdv-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-top: 12px;
+  border-top: 1px solid var(--gris-clair);
+}
+
+.me-rdv-card__prix {
+  font-family: var(--font-titre);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--violet);
+}
+
+.me-rdv-card__confirme {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  color: var(--vert);
+  font-weight: 500;
+}
+
+.me-rdv-card__note {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: var(--gris-pale);
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  color: var(--gris-moyen);
+}
+
+@media (max-width: 768px) {
+  .mon-espace__grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .mon-espace__profil,
+  .mon-espace__stats,
+  .mon-espace__rdvs {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .mon-espace { padding: 20px 0 48px; }
+  .mon-espace__header { gap: 12px; }
+  .mon-espace__logout { order: 3; width: 100%; }
+  .mon-espace__stats { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .mon-espace              { padding: 16px 0 40px; }
+  .mon-espace__header      { gap: 10px; margin-bottom: 16px; }
+  .mon-espace__avatar      { width: 42px; height: 42px; font-size: 1.1rem; }
+  .mon-espace__header h1   { font-size: 1.05rem; }
+  .mon-espace__header p    { font-size: 0.72rem; }
+  .mon-espace__logout      { order: 3; width: 100%; }
+  .mon-espace__stats       { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .me-stat                 { padding: 10px 8px; }
+  .me-stat strong          { font-size: 1.2rem; }
+  .me-stat span            { font-size: 0.62rem; }
+  .mon-espace__actions-rapides { flex-wrap: wrap; gap: 6px; margin-top: 12px; padding-top: 12px; }
+  .mon-espace__actions-rapides .btn { flex: 1; min-width: 120px; justify-content: center; font-size: 0.78rem; padding: 8px 10px; }
+  .me-rdv-card             { padding: 12px; margin-bottom: 8px; }
+  .me-rdv-card__header     { margin-bottom: 6px; }
+  .me-rdv-card__service    { font-size: 0.8rem; }
+  .me-rdv-card__body       { font-size: 0.72rem; gap: 6px; }
+  .me-rdv-card__footer     { padding-top: 8px; gap: 6px; }
+  .me-rdv-card__prix       { font-size: 0.88rem; }
+  .mon-espace__rdvs-titre  { font-size: 0.85rem; margin-bottom: 10px; }
+}

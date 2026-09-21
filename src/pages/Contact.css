@@ -1,0 +1,177 @@
+.contact-page__content {
+  padding: 48px 20px 80px;
+}
+
+.contact-page__layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.contact-infos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-infos__card {
+  padding: 28px;
+}
+
+.contact-infos__card h3,
+.contact-horaires h3 {
+  font-family: var(--font-titre);
+  font-size: 1.1rem;
+  color: var(--noir);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-info-item {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.contact-info-item:last-child { margin-bottom: 0; }
+
+.contact-info-item__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--violet-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--violet);
+  flex-shrink: 0;
+}
+
+.contact-info-item__icon--whatsapp { background: #E8F5E9; color: #25D366; }
+
+.contact-info-item strong {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--gris-moyen);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 3px;
+}
+
+.contact-info-item span,
+.contact-info-item a {
+  font-size: 0.92rem;
+  color: var(--noir);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.contact-info-item a:hover { color: var(--violet); }
+
+/* Horaires */
+.contact-horaires {
+  padding: 28px;
+}
+
+.contact-horaires__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.contact-horaires__list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--gris-clair);
+  font-size: 0.88rem;
+}
+
+.contact-horaires__list li:last-child { border-bottom: none; }
+.contact-horaires__list li span { color: var(--gris-moyen); }
+.contact-horaires__list li strong { color: var(--noir); font-weight: 600; }
+
+.contact-horaires__item--ferme span,
+.contact-horaires__item--ferme strong { color: var(--rouge) !important; opacity: 0.6; }
+
+.contact-wa-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Formulaire */
+.contact-form-card {
+  padding: 36px;
+}
+
+.contact-form-card h3 {
+  font-family: var(--font-titre);
+  font-size: 1.3rem;
+  color: var(--noir);
+  margin-bottom: 0;
+}
+
+/* Succès */
+.contact-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+  min-height: 400px;
+  color: var(--vert);
+}
+
+.contact-success h3 {
+  font-family: var(--font-titre);
+  font-size: 1.5rem;
+  color: var(--noir);
+}
+
+.contact-success p {
+  font-size: 0.95rem;
+  color: var(--gris-moyen);
+  max-width: 380px;
+  line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contact-page__layout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .contact-page__content { padding: 24px 12px 60px; }
+  .contact-infos__card { padding: 18px; }
+  .contact-info-item { gap: 10px; }
+  .contact-info-item__icon { width: 36px; height: 36px; }
+  .contact-horaires { padding: 18px; }
+  .contact-form-card { padding: 18px 14px; }
+  .contact-form-card h3 { font-size: 1.1rem; }
+  .contact-success { min-height: 280px; }
+  .contact-success h3 { font-size: 1.2rem; }
+}
+
+@media (max-width: 480px) {
+  .contact-page__content       { padding: 14px 10px 40px; }
+  .contact-infos__card         { padding: 12px; }
+  .contact-infos__card h3      { font-size: 0.9rem; margin-bottom: 12px; }
+  .contact-info-item           { gap: 8px; }
+  .contact-info-item__icon     { width: 28px; height: 28px; }
+  .contact-info-item__icon svg { width: 14px; height: 14px; }
+  .contact-info-item strong    { font-size: 0.75rem; }
+  .contact-info-item span,
+  .contact-info-item a         { font-size: 0.75rem; }
+  .contact-horaires            { padding: 12px; }
+  .contact-horaires h3         { font-size: 0.88rem; }
+  .contact-horaires__list li   { font-size: 0.72rem; }
+  .contact-form-card           { padding: 12px 10px; }
+  .contact-form-card h3        { font-size: 0.92rem; margin-bottom: 12px; }
+  .contact-wa-btn              { font-size: 0.82rem; padding: 9px 14px; min-height: 42px; }
+  .contact-form-card .grid-2   { grid-template-columns: 1fr; }
+}

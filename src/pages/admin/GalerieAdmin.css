@@ -1,0 +1,183 @@
+.galerie-admin { padding: 32px 24px; }
+
+.galerie-admin__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.ga-card { overflow: hidden; padding: 0; }
+
+.ga-card__img-wrap {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  background: var(--gris-pale);
+}
+
+.ga-card__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .3s;
+}
+
+.ga-card:hover .ga-card__img-wrap img { transform: scale(1.04); }
+
+.ga-card__delete {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(239,68,68,.9);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+.ga-card:hover .ga-card__delete { opacity: 1; }
+
+.ga-card__body { padding: 12px 14px; }
+.ga-card__cat { font-size: 0.72rem; color: var(--violet); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+.ga-card__titre { font-size: 0.85rem; color: var(--noir-doux); margin: 4px 0 4px; font-weight: 500; }
+.ga-card__date { font-size: 0.75rem; color: var(--gris-moyen); }
+
+/* Prévisualisation */
+.ga-preview {
+  border-radius: 10px;
+  overflow: hidden;
+  height: 160px;
+  background: var(--gris-pale);
+}
+
+.ga-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Zone upload ── */
+.ga-upload-zone {
+  border: 2px dashed var(--gris-clair);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: border-color .2s, background .2s;
+  overflow: hidden;
+  position: relative;
+  background: var(--gris-pale);
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ga-upload-zone:hover,
+.ga-upload-zone:focus {
+  border-color: var(--violet);
+  background: var(--violet-pale);
+  outline: none;
+}
+
+.ga-upload-zone--error {
+  border-color: var(--rouge);
+}
+
+.ga-upload-zone--has-preview {
+  border-style: solid;
+  border-color: var(--violet);
+  min-height: 200px;
+}
+
+.ga-upload-zone__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 28px 20px;
+  text-align: center;
+  color: var(--gris-moyen);
+  pointer-events: none;
+}
+
+.ga-upload-zone__placeholder svg { color: var(--violet); opacity: .6; }
+
+.ga-upload-zone__placeholder strong {
+  font-size: 0.88rem;
+  color: var(--noir-doux);
+}
+
+.ga-upload-zone__placeholder span {
+  font-size: 0.75rem;
+}
+
+.ga-upload-zone__preview {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.ga-upload-zone__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(139,92,246,.55);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+.ga-upload-zone:hover .ga-upload-zone__overlay,
+.ga-upload-zone:focus .ga-upload-zone__overlay {
+  opacity: 1;
+}
+
+.ga-file-info {
+  font-size: 0.75rem;
+  color: var(--gris-moyen);
+  margin-top: 4px;
+}
+
+/* Spinner upload */
+.ga-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin .6s linear infinite;
+  flex-shrink: 0;
+}
+
+/* sr-only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+@media (max-width: 480px) {
+  .galerie-admin { padding: 16px 12px; }
+  .galerie-admin__grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .ga-card__img-wrap { height: 140px; }
+}

@@ -1,0 +1,118 @@
+/* ═══════════════════════════════════════════
+   TOAST CONTAINER
+═══════════════════════════════════════════ */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+  max-width: 360px;
+  width: calc(100vw - 48px);
+}
+
+/* ═══════════════════════════════════════════
+   TOAST ITEM
+═══════════════════════════════════════════ */
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--blanc);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.14);
+  border-left: 4px solid transparent;
+  position: relative;
+  overflow: hidden;
+  pointer-events: all;
+  cursor: default;
+
+  /* Entrée : glisse depuis la droite */
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.toast--visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Variantes */
+.toast--success { border-left-color: var(--vert); }
+.toast--error   { border-left-color: var(--rouge); }
+.toast--warning { border-left-color: var(--orange); }
+.toast--info    { border-left-color: #3B82F6; }
+
+.toast__icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+  display: flex;
+}
+
+.toast--success .toast__icon { color: var(--vert);   }
+.toast--error   .toast__icon { color: var(--rouge);  }
+.toast--warning .toast__icon { color: var(--orange); }
+.toast--info    .toast__icon { color: #3B82F6;       }
+
+.toast__msg {
+  flex: 1;
+  font-size: 0.83rem;
+  font-weight: 500;
+  color: var(--noir-doux);
+  line-height: 1.4;
+}
+
+.toast__close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--gris-moyen);
+  padding: 2px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s, background 0.15s;
+  margin-top: 1px;
+}
+
+.toast__close:hover {
+  color: var(--noir-doux);
+  background: var(--gris-pale);
+}
+
+/* Barre de progression */
+.toast__bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  transform-origin: left;
+  animation: toast-progress linear forwards;
+}
+
+.toast--success .toast__bar { background: var(--vert);   }
+.toast--error   .toast__bar { background: var(--rouge);  }
+.toast--warning .toast__bar { background: var(--orange); }
+.toast--info    .toast__bar { background: #3B82F6;       }
+
+@keyframes toast-progress {
+  from { transform: scaleX(1); }
+  to   { transform: scaleX(0); }
+}
+
+@media (max-width: 480px) {
+  .toast-container {
+    bottom: 16px;
+    right: 12px;
+    left: 12px;
+    width: auto;
+    max-width: 100%;
+  }
+}
