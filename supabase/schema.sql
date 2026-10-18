@@ -209,6 +209,7 @@ create table if not exists public.profiles (
   id          uuid primary key references auth.users(id) on delete cascade,
   nom         text not null default '',
   telephone   text not null default '',
+  role        text not null default 'client' check (role in ('client', 'admin')),
   created_at  timestamptz not null default now()
 );
 
@@ -216,11 +217,12 @@ create table if not exists public.profiles (
 create or replace function public.handle_new_user()
 returns trigger language plpgsql security definer as $$
 begin
-  insert into public.profiles (id, nom, telephone)
+  insert into public.profiles (id, nom, telephone, role)
   values (
     new.id,
     coalesce(new.raw_user_meta_data->>'nom', ''),
-    coalesce(new.raw_user_meta_data->>'telephone', '')
+    coalesce(new.raw_user_meta_data->>'telephone', ''),
+    'client'
   );
   return new;
 end;
